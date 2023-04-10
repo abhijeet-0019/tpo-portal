@@ -1,38 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Executive Summary:
+This report presents the findings of a UX research study conducted on the college placement cell automation program. The purpose of this research was to understand the user needs and identify areas for improvement in the program. The study involved a combination of qualitative and quantitative research methods including user interviews, surveys, and usability testing. The findings of this research can be used to inform the design and development of the program to better meet the needs of its users.
+ 
+ ## Methodology:
+The study was conducted in two phases. 
+- The first phase involved user interviews with 10 students who had recently used the placement cell automation program.
+- The interviews were conducted in person and lasted approximately 30 minutes each. 
+- The purpose of the interviews was to understand the users' experience with the program and identify areas for improvement.
 
-## Getting Started
+- The second phase of the study involved a survey and usability testing. 
+- The survey was distributed to all students who had used the program in the past six months. 
+- The survey included questions about the users' experience with the program and their satisfaction with its features. 
+- Usability testing was conducted with 5 students who had not used the program before. 
+- The purpose of the usability testing was to evaluate the ease of use of the program and identify areas for improvement.
 
-First, run the development server:
+## Recommendations:
+- Based on the findings of this study, the following recommendations are made to improve the program:
+- Improve communication with employers by adding a messaging feature.
+- Add a status tracker so that users can easily track the progress of their applications.
+- Implement a notification system to alert users about new job openings.
+- Improve the user interface by providing clearer instructions and more intuitive navigation.
+- Add the ability to filter job listings by location and save job searches.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Conclusion:
+Overall, this study identified several areas for improvement in the college placement cell automation program. By implementing the recommended changes, the program can be made more user-friendly and better meet the needs of its users.
