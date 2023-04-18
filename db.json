@@ -1,42 +1,49 @@
 {
-    "faqs": [
-        {
-            "id": 1,
-            "question": "who are you ?",
-            "answer": "i am no one."
-        },
-        {
-            "id": 2,
-            "question": "how can you be no one?",
-            "answer": "welcome to bravoos."
-        },
-        {
-            "id": 3,
-            "question": "i ask again, who are you?",
-            "answer": "arya stark, house of winterfell."
-        }
-    ],
-    "notification": [
-        {
-            "id": 1,
-            "company": "airtel",
-            "batch": "2024",
-            "sub_heading": "update",
-            "content": "nahi\n aayegi\n bhuljao"
-        },
-        {
-            "id": 2,
-            "company": "ISRO",
-            "batch": "Covid-Batch",
-            "sub_heading": "update",
-            "content": "yeh\n bhi\n nahi\n aayigi"
-        },
-        {
-            "id": 3,
-            "company": "normat",
-            "batch": "2023",
-            "sub_heading": "final update",
-            "content": "kabhi nahi aayigi"
-        }
-    ]
+  "faqs": [
+    {
+      "id": 1,
+      "question": "who are you ?",
+      "answer": "i am no one."
+    },
+    {
+      "id": 2,
+      "question": "how can you be no one?",
+      "answer": "welcome to bravoos."
+    },
+    {
+      "id": 3,
+      "question": "i ask again, who are you?",
+      "answer": "arya stark, house of winterfell."
+    }
+  ],
+  "notification": [
+    {
+      "id": 1,
+      "company": "airtel",
+      "batch": "2024",
+      "subHeading": "update",
+      "content": "nahi\n aayegi\n bhuljao"
+    },
+    {
+      "id": 2,
+      "company": "ISRO",
+      "batch": "Covid-Batch",
+      "subHeading": "update",
+      "content": "yeh\n bhi\n nahi\n aayigi"
+    },
+    {
+      "id": 3,
+      "company": "normat",
+      "batch": "2023",
+      "subHeading": "final update",
+      "content": "kabhi nahi aayigi"
+    },
+    {
+      "company": "mirowave8",
+      "batch": "2022",
+      "subHeading": "Result",
+      "content": "all the studnt are\nselected\nnames:\n- amrit\n- bhavya\n- jai\n- happy\n- navyanjali",
+      "id": 5
+    }
+  ]
 }

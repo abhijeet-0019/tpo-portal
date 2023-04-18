@@ -1,18 +1,18 @@
 import * as React from 'react';
-import RowNotificaion from '../components/RowNotification';
+import RowNotification from '../components/RowNotification';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-export default function CollapsibleTable({notifications}) {
+export default function notificationTable({notifications}) {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
         <TableBody>
           {notifications.map((notification) => (
-            <RowNotificaion key={notification.id} notification={notification} />
+            <RowNotification key={notification.id} notification={notification} admin={false}/>
           ))}
         </TableBody>
       </Table>
