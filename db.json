@@ -42,8 +42,22 @@
       "company": "mirowave8",
       "batch": "2022",
       "subHeading": "Result",
-      "content": "all the studnt are\nselected\nnames:\n- amrit\n- bhavya\n- jai\n- happy\n- navyanjali",
+      "content": "all the studnt are\nselected\nnames:\n- amrit\n- bhavya\n- jai\n",
       "id": 5
+    },
+    {
+      "company": "netparam",
+      "batch": "2024",
+      "subHeading": "Update",
+      "content": "forms are open please fill those",
+      "id": 6
+    },
+    {
+      "company": "",
+      "batch": "",
+      "subHeading": "Update",
+      "content": "",
+      "id": 8
     }
   ]
 }

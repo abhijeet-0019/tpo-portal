@@ -7,14 +7,13 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-
 export default function notification({ notifications }) {
 
     const [notificationArray, setNotifications] = React.useState([]);
 
     React.useEffect(() => {
         setNotifications(notifications);
-        console.log(notificationArray, "---------", notifications)
+        // console.log(notificationArray, "---------", notifications)
     }, [notifications]);
 
     const handleDeleteNotification = (notificationId) => {
@@ -32,7 +31,6 @@ export default function notification({ notifications }) {
                 // handle error
             });
     };
-
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
@@ -53,6 +51,6 @@ export default function notification({ notifications }) {
 export async function getStaticProps() {
     const response = await fetch('http://localhost:5000/notification');
     const notifications = await response.json();
-    console.log(notifications)
+    // console.log(notifications)
     return { props: { notifications } };
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import Image from "next/image";
-import style from "./index.module.css";
+import style from "./Navbar.module.css";
 import profile from "../../public/assets/Profile.png";
 
-function Client() {
-    const list = ['Dashboard', 'Feeds', 'Companies', 'New User', 'Calender', 'Settings', 'FAQ', 'LogOut'];
+function Navbar2({ children }) {
+    const list = ['Dashboard', 'Feeds', 'Companies', 'New User', 'Calendar', 'Settings', 'FAQ', 'LogOut'];
     return (
         <div className={style.parent}>
             <div className={style.sidebar}>
@@ -20,7 +20,7 @@ function Client() {
                             </div>
                         </li>
                         {list.map((item) => (
-                            <li>
+                            <li key={item}>
                                 <a href="#">
                                     <div className={style.list_tab}>
                                         <span className={style.list}>{item}</span>
@@ -32,10 +32,10 @@ function Client() {
                 </div>
             </div>
             <div className={style.content}>
-            components goes here
+                {children}
             </div>
         </div>
     )
 }
 
-export default Client
+export default Navbar2
