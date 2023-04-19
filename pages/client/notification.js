@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RowNotification from '../components/RowNotification';
+import Header from '../components/Header';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,6 +10,7 @@ import Paper from '@mui/material/Paper';
 export default function notificationTable({notifications}) {
   return (
     <TableContainer component={Paper}>
+    <Header tabname={"NOTIFICATIONS"} />
       <Table aria-label="collapsible table">
         <TableBody>
           {notifications.map((notification) => (

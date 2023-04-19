@@ -4,10 +4,12 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import RowFAQ from '../components/RowFAQ';
+import Header from '../components/Header';
 
 export default function CollapsibleTable({faqs}) {
     return (
         <TableContainer component={Paper}>
+        <Header tabname={"FAQ"} />
             <Table aria-label="collapsible table">
                 <TableBody>
                     {faqs.map((faq) => (
