@@ -74,12 +74,11 @@
     color: #FFFFFF;
 }
 
-.main_body .sidebar_menu ul li a:hover {
-    background: #D3D3D3;
-    color: black;
+.inner_sidebar ul li a:hover {
+    color: #535353;
 }
 
-.main_body .sidebar_menu ul li a.active {
+.inner_sidebar ul li a.active {
     background: #535353;
     color: #fff;
 }
