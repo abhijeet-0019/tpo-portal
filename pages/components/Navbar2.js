@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from "next/image";
-import style from "./Navbar.module.css";
+import style from "./Navbar2.module.css";
 import profile from "../../public/assets/Profile.png";
 
 function Navbar2({ children }) {
