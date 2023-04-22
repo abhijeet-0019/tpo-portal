@@ -16,7 +16,7 @@ export default function companyTable(props) {
       <Table aria-label="collapsible table">
         <TableBody>
           {companies.map((company) => (
-            <RowCompany key={company.id} company={company} />
+            <RowCompany key={company.id} company={company} admin={true}/>
           ))}
         </TableBody>
       </Table>

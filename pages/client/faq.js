@@ -21,7 +21,7 @@ export default function CollapsibleTable({faqs}) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const response = await fetch('http://localhost:5000/faqs');
     const faqs = await response.json();
     // console.log(faqs)

@@ -44,13 +44,6 @@
       "subHeading": "Result",
       "content": "all the studnt are\nselected\nnames:\n- amrit\n- bhavya\n- jai\n",
       "id": 5
-    },
-    {
-      "company": "netparam",
-      "batch": "2024",
-      "subHeading": "Update",
-      "content": "forms are open please fill those",
-      "id": 6
     }
   ],
   "companies": [
@@ -73,7 +66,7 @@
       "name": "JSW",
       "jobProfile": "GET",
       "eligibleBranches": "EE, Mech",
-      "details":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
   ]
 }

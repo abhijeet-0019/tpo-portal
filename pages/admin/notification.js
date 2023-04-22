@@ -6,7 +6,7 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
-import Header from '../components/Header';
+import Header from '../components/Header';4
 
 export default function notification({ notifications }) {
 
@@ -35,7 +35,7 @@ export default function notification({ notifications }) {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-        <Header tabname={"NOTIFICATIONS"} />    
+           
         <AddNotification />
             <TableContainer component={Paper}>
                 <Table aria-label="collapsible table">
@@ -50,7 +50,7 @@ export default function notification({ notifications }) {
     );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const response = await fetch('http://localhost:5000/notification');
     const notifications = await response.json();
     // console.log(notifications)
