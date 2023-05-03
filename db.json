@@ -52,21 +52,92 @@
       "name": "Airtel",
       "jobProfile": "GET",
       "eligibleBranches": "ECE, EEE, EE",
-      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "active": true
     },
     {
       "id": 2,
       "name": "Bindass",
       "jobProfile": "SDE",
       "eligibleBranches": "All Branches",
-      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "active": false
     },
     {
       "id": 3,
       "name": "JSW",
       "jobProfile": "GET",
       "eligibleBranches": "EE, Mech",
-      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+      "details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "active": true
+    }
+  ],
+  "students": [
+    {
+      "STUDENT_ID": "101",
+      "EMAIL_ADDRESS": "john.doe@example.com",
+      "NAME": "John Doe",
+      "BRANCH_ID": "CE",
+      "DOB": "1999-01-01",
+      "MOBILE_NO": "+91 9999999999",
+      "ROLL_NO": "001",
+      "10_%": "90",
+      "10_BOARD": "CBSE",
+      "10_PASSING_YR": "2015",
+      "12_%": "85",
+      "12_BOARD": "CBSE",
+      "12_SUBJECT": "PCM",
+      "12_YEAR_OF_PASSING": "2017",
+      "GRA_AD_YR": "2021",
+      "GRA_PASS_YR": "2021",
+      "BE_%": "87",
+      "DEAD_KT": "0",
+      "ACTIVE_KT": "0",
+      "RESUME": "john_doe_resume.doc"
+    },
+    {
+      "STUDENT_ID": "102",
+      "EMAIL_ADDRESS": "jane.doe@example.com",
+      "NAME": "Jane Doe",
+      "BRANCH_ID": "CSE",
+      "DOB": "1998-02-01",
+      "MOBILE_NO": "+91 8888888888",
+      "ROLL_NO": "002",
+      "10_%": "92",
+      "10_BOARD": "ICSE",
+      "10_PASSING_YR": "2015",
+      "12_%": "88",
+      "12_BOARD": "ISC",
+      "12_SUBJECT": "PCM",
+      "12_YEAR_OF_PASSING": "2017",
+      "GRA_AD_YR": "2021",
+      "GRA_PASS_YR": "2021",
+      "BE_%": "90",
+      "DEAD_KT": "0",
+      "ACTIVE_KT": "0",
+      "RESUME": "jane_doe_resume.doc"
+    },
+    {
+      "STUDENT_ID": "103",
+      "EMAIL_ADDRESS": "james.smith@example.com",
+      "NAME": "James Smith",
+      "BRANCH_ID": "EE",
+      "DOB": "1999-03-15",
+      "MOBILE_NO": "+91 7777777777",
+      "ROLL_NO": "003",
+      "10_%": "95",
+      "10_BOARD": "CBSE",
+      "10_PASSING_YR": "2015",
+      "12_%": "90",
+      "12_BOARD": "CBSE",
+      "12_SUBJECT": "PCM",
+      "12_YEAR_OF_PASSING": "2017",
+      "GRA_AD_YR": "2021",
+      "GRA_PASS_YR": "2021",
+      "BE_%": "85",
+      "DEAD_KT": "0",
+      "ACTIVE_KT": "0",
+      "RESUME": "james_smith_resume.doc"
     }
   ]
 }

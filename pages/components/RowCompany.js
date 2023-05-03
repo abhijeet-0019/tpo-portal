@@ -8,16 +8,10 @@ import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
 
 export default function RowCompany(props) {
-    const { company, admin } = props;
+    const { company } = props;
     const [open, setOpen] = React.useState(false);
-    const [applyEnabled, setApplyEnabled] = React.useState(false);
-
-    const handleApplyToggle = () => {
-        setApplyEnabled(!applyEnabled);
-    };
 
     return (
         <React.Fragment>
@@ -44,7 +38,7 @@ export default function RowCompany(props) {
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        <Box sx={{ margin: 6 }}>
+                        <Box sx={{ marginTop: 2, marginLeft: 6, marginRight: 6, marginBottom: 6 }}>
                             <Box
                                 sx={{
                                     display: 'flex',
@@ -53,12 +47,10 @@ export default function RowCompany(props) {
                                     marginBottom: 2,
                                 }}
                             >
-                                <Typography variant="subtitle1">Form Status (ON/OFF)</Typography>
-                                <Switch checked={applyEnabled} onChange={handleApplyToggle} />
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    disabled={!applyEnabled}
+                                    disabled={company.active}
                                     onClick={() => alert('Apply button clicked!')}
                                 >
                                     Apply Now
@@ -75,11 +67,6 @@ export default function RowCompany(props) {
                                         />
                                     ))}
                             </Typography>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
-                                <Button variant="contained" color="primary">
-                                    Show List of Applied Students
-                                </Button>
-                            </Box>
                         </Box>
                     </Collapse>
                 </TableCell>
