@@ -7,14 +7,14 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-export default function notificationTable({notifications}) {
+function NotificationTable({ notifications }) {
   return (
     <TableContainer component={Paper}>
-    <Header tabname={"NOTIFICATIONS"} />
+      <Header tabname={'NOTIFICATIONS'} />
       <Table aria-label="collapsible table">
         <TableBody>
           {notifications.map((notification) => (
-            <RowNotification key={notification.id} notification={notification} admin={false}/>
+            <RowNotification key={notification.id} notification={notification} admin={false} />
           ))}
         </TableBody>
       </Table>
@@ -23,8 +23,19 @@ export default function notificationTable({notifications}) {
 }
 
 export async function getServerSideProps() {
-    const response = await fetch('http://localhost:5000/notification');
-    const notifications = await response.json();
-    console.log(notifications)
-    return { props: { notifications } };
+  const response = await fetch('http://localhost:5000/notification');
+  const notifications = await response.json();
+  console.log(notifications);
+  return { props: { notifications } };
+}
+
+// render the component only on the client-side
+export default function ClientNotificationTable(props) {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return mounted ? <NotificationTable {...props} /> : null;
 }
