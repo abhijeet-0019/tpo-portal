@@ -9,61 +9,37 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
 
-// studets details preview section
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-// resume dialog section
-import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
-import CloseIcon from '@mui/icons-material/Close';
-
 export default function RowCompany(props) {
     const { company } = props;
     const [open, setOpen] = React.useState(false);
     const [openDialog, setOpenDialog] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
-
-    const [openResumeSection, setOpenResumeSection] = React.useState(false);
-
-    // students details preview section
+  
     const handleClickOpen = (scrollType) => () => {
-        setOpenDialog(true);
-        setScroll(scrollType);
-        handleCloseResumeSection();
+      setOpenDialog(true);
+      setScroll(scrollType);
     };
-
+  
     const handleClose = () => {
-        setOpenDialog(false);
+      setOpenDialog(false);
     };
-    const handleSubmit = () => {
-        handleClose();
-        alert("Applied Successfully")       
-    }
-
+  
     const descriptionElementRef = React.useRef(null);
     React.useEffect(() => {
-        if (openDialog) {
-            const { current: descriptionElement } = descriptionElementRef;
-            if (descriptionElement !== null) {
-                descriptionElement.focus();
-            }
+      if (openDialog) {
+        const { current: descriptionElement } = descriptionElementRef;
+        if (descriptionElement !== null) {
+          descriptionElement.focus();
         }
+      }
     }, [openDialog]);
-
-
-    // resume dialog box
-    const handleClickOpenResumeSection = () => {
-        setOpenResumeSection(true);
-    };
-    const handleCloseResumeSection = () => {
-        setOpenResumeSection(false);
-    };
-
-
+  
 
     return (
         <React.Fragment>
@@ -104,46 +80,17 @@ export default function RowCompany(props) {
                                     color="primary"
                                     disabled={company.active}
                                     // onClick={() => alert('Apply button clicked!')}
-                                    onClick={handleClickOpenResumeSection}
+                                    onClick={handleClickOpen('paper')}
                                 >
                                     Apply Now
                                 </Button>
-                                <BootstrapDialog
-                                    onClose={handleCloseResumeSection}
-                                    aria-labelledby="customized-dialog-title"
-                                    open={openResumeSection}
-                                >
-                                    <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseResumeSection}>
-                                        Upload Updated Resume
-                                    </BootstrapDialogTitle>
-                                    <DialogContent dividers>
-                                        <Typography gutterBottom>
-                                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                                            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                                            consectetur ac, vestibulum at eros.
-                                        </Typography>
-                                        <Typography gutterBottom>
-                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-                                        </Typography>
-                                    </DialogContent>
-                                    <DialogActions>
-                                        <Button autoFocus onClick={handleCloseResumeSection}>
-                                            Close
-                                        </Button>
-                                        <Button autoFocus onClick={handleClickOpen('paper')}>
-                                            Next
-                                        </Button>
-                                    </DialogActions>
-                                </BootstrapDialog>
-
                                 <Dialog
                                     open={openDialog}
                                     onClose={handleClose}
                                     scroll={scroll}
                                     aria-labelledby="scroll-dialog-title"
                                     aria-describedby="scroll-dialog-description"
-                                ><DialogTitle id="scroll-dialog-title">Application Preview</DialogTitle>
+                                ><DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
                                     <DialogContent dividers={scroll === 'paper'}>
                                         <DialogContentText
                                             id="scroll-dialog-description"
@@ -162,7 +109,7 @@ export default function RowCompany(props) {
                                     </DialogContent>
                                     <DialogActions>
                                         <Button onClick={handleClose}>Cancel</Button>
-                                        <Button onClick={handleSubmit}>Submit</Button>
+                                        <Button onClick={handleClose}>Subscribe</Button>
                                     </DialogActions>
                                 </Dialog>
                             </Box>
@@ -184,43 +131,3 @@ export default function RowCompany(props) {
         </React.Fragment>
     );
 }
-
-
-// resume dialog section
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
-
-function BootstrapDialogTitle(props) {
-    const { children, onClose, ...other } = props;
-
-    return (
-        <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-            {children}
-            {onClose ? (
-                <IconButton
-                    aria-label="close"
-                    onClick={onClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: (theme) => theme.palette.grey[500],
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
-            ) : null}
-        </DialogTitle>
-    );
-}
-
-BootstrapDialogTitle.propTypes = {
-    children: PropTypes.node,
-    onClose: PropTypes.func.isRequired,
-};
