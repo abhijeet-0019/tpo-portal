@@ -10,17 +10,17 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 
-export default function UploadResume({onClose, onClick, openResumeSection}) {
+export default function UploadResume({ onClose, onClick, openResumeSection }) {
 
     const handleCloseResumeSection = () => {
         onClose();
     };
 
-    const handleClickOpen =()=>{
+    const handleClickOpen = () => {
         onClick();
     }
 
-    const openSection = ()=>{
+    const openSection = () => {
         openResumeSection();
     }
 
@@ -32,17 +32,24 @@ export default function UploadResume({onClose, onClick, openResumeSection}) {
                 open={openSection}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleCloseResumeSection}>
-                    Upload Updated Resume
+                    Update Resume
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <Typography gutterBottom>
-                        Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                        dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                        consectetur ac, vestibulum at eros.
-                    </Typography>
-                    <Typography gutterBottom>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                        <div style={{ marginBottom: '10px' }}>
+                            <Typography variant="subtitle1" gutterBottom>
+                                Current Resume:
+                            </Typography>
+                            <Typography variant="body1">
+                                {/* Placeholder for fetched file */}
+                            </Typography>
+                        </div>
+                        <div>
+                            <Typography variant="subtitle1" gutterBottom>
+                                Upload New Resume:
+                            </Typography>
+                            <input type="file" />
+                        </div>
                     </Typography>
                 </DialogContent>
                 <DialogActions>
