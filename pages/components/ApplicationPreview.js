@@ -6,13 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function DialogPreview({scroll}) {
-    const [openDialog, setOpenDialog] = React.useState(scroll);
-    // const [scroll, setScroll] = React.useState('paper');
-
-    const handleClose = () => {
-        setOpenDialog(false);
-    };
+export default function ApplicationPreview({onClose, onClick, openDialog, scroll}) {
 
     const descriptionElementRef = React.useRef(null);
     React.useEffect(() => {
@@ -24,16 +18,15 @@ export default function DialogPreview({scroll}) {
         }
     }, [openDialog]);
 
-
     return (
         <div>
             <Dialog
                 open={openDialog}
-                onClose={handleClose}
-                scroll={'paper'}
+                onClose={onClose}
+                scroll={scroll}
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
-            ><DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
+            ><DialogTitle id="scroll-dialog-title">Application Preview</DialogTitle>
                 <DialogContent dividers={scroll === 'paper'}>
                     <DialogContentText
                         id="scroll-dialog-description"
@@ -51,8 +44,8 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
+                    <Button onClick={onClose}>Cancel</Button>
+                    <Button onClick={onClick}>Submit</Button>
                 </DialogActions>
             </Dialog>
         </div>
