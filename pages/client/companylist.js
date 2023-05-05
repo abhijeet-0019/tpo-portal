@@ -2,12 +2,14 @@ import * as React from 'react';
 import Header from '../components/Header';
 import RowCompany from '../components/RowCompany';
 
+import { withAuth } from '../../withAuth';
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-export default function companyTable(props) {
+function companyTable(props) {
   const { companies, students } = props;
   const student = students[0]
 
@@ -24,6 +26,7 @@ export default function companyTable(props) {
     </TableContainer>
   );
 }
+export default withAuth(companyTable);
 
 export async function getServerSideProps() {
   const response1 = await fetch('http://localhost:5000/companies');

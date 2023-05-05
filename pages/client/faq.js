@@ -6,7 +6,9 @@ import Paper from '@mui/material/Paper';
 import RowFAQ from '../components/RowFAQ';
 import Header from '../components/Header';
 
-export default function CollapsibleTable({faqs}) {
+import { withAuth } from '../../withAuth';
+
+function FAQTable({faqs}) {
     return (
         <TableContainer component={Paper}>
         <Header tabname={"FAQ"} />
@@ -20,6 +22,7 @@ export default function CollapsibleTable({faqs}) {
         </TableContainer>
     );
 }
+export default withAuth(FAQTable);
 
 export async function getServerSideProps() {
     const response = await fetch('http://localhost:5000/faqs');

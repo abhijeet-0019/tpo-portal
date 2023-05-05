@@ -7,6 +7,8 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
+import { withAuth } from '../../withAuth';
+
 function NotificationTable({ notifications }) {
   return (
     <TableContainer component={Paper}>
@@ -30,7 +32,7 @@ export async function getServerSideProps() {
 }
 
 // render the component only on the client-side
-export default function ClientNotificationTable(props) {
+function ClientNotificationTable(props) {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -39,3 +41,4 @@ export default function ClientNotificationTable(props) {
 
   return mounted ? <NotificationTable {...props} /> : null;
 }
+export default withAuth(ClientNotificationTable);
