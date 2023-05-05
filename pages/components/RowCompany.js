@@ -13,7 +13,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
 
 export default function RowCompany(props) {
-    const { company } = props;
+    const { company, student } = props;
     const [open, setOpen] = React.useState(false);
     const [openDialog, setOpenDialog] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
@@ -89,7 +89,7 @@ export default function RowCompany(props) {
                                 </Button>
                                 {openResumeSection && <UploadResume onClose={handleCloseResumeSection} onClick={handleClickOpen('paper')} />}
 
-                                {openDialog && <ApplicationPreview onClose={handleCloseDialog} onClick={handleSubmit} openDialog={openDialog} scroll="paper" />}
+                                {openDialog && <ApplicationPreview onClose={handleCloseDialog} onClick={handleSubmit} openDialog={openDialog} scroll="paper" student={student} />}
                             </Box>
                             <Typography variant="h6" gutterBottom component="div">
                                 {company.details
