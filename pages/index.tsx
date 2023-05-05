@@ -1,9 +1,16 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const HomePage = () => {
+  const router = useRouter();
+
+  useEffect (()=>{
+    router.push('/login');
+  }, [])
   return (
     <>
-      <h1>HomePage</h1>
+      <h1>Loading...</h1>
     </>
   )
 }
