@@ -10,7 +10,7 @@ import Header from '../components/Header';
 
 import { withAuth } from '../../withAuth';
 
-function notification({ notifications }) {
+export default function notification({ notifications }) {
 
     const [notificationArray, setNotifications] = React.useState([]);
 
@@ -51,7 +51,7 @@ function notification({ notifications }) {
         </div>
     );
 }
-export default withAuth(notification);
+
 
 export async function getServerSideProps() {
     const response = await fetch('http://localhost:5000/notification');

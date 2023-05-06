@@ -29,7 +29,8 @@ function Login() {
     const success = await setUser(user);
    console.log(user);
     if (success) {
-      router.push("/");
+      console.log("hello there mate")
+      router.push("../client/companylist");
     } else {
       alert("Incorrect Login credentials");
     }

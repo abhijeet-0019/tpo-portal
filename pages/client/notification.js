@@ -32,7 +32,7 @@ export async function getServerSideProps() {
 }
 
 // render the component only on the client-side
-function ClientNotificationTable(props) {
+export default function ClientNotificationTable(props) {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
@@ -41,4 +41,3 @@ function ClientNotificationTable(props) {
 
   return mounted ? <NotificationTable {...props} /> : null;
 }
-export default withAuth(ClientNotificationTable);

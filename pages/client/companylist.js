@@ -9,7 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-function companyTable(props) {
+export default function companyTable(props) {
   const { companies, students } = props;
   const student = students[0]
 
@@ -26,7 +26,7 @@ function companyTable(props) {
     </TableContainer>
   );
 }
-export default withAuth(companyTable);
+
 
 export async function getServerSideProps() {
   const response1 = await fetch('http://localhost:5000/companies');
