@@ -6,9 +6,11 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
-import Header from '../components/Header';4
+import Header from '../components/Header';
 
-export default function notification({ notifications }) {
+import { withAuth } from '../../withAuth';
+
+function notification({ notifications }) {
 
     const [notificationArray, setNotifications] = React.useState([]);
 
@@ -49,6 +51,7 @@ export default function notification({ notifications }) {
         </div>
     );
 }
+export default withAuth(notification);
 
 export async function getServerSideProps() {
     const response = await fetch('http://localhost:5000/notification');

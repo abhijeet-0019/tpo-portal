@@ -1,4 +1,7 @@
 import * as React from 'react';
+import UploadResume from './UploadResume';
+import ApplicationPreview from './ApplicationPreview';
+
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -8,15 +11,38 @@ import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
 
 export default function RowCompany(props) {
-    const { company, admin } = props;
+    const { company, student } = props;
     const [open, setOpen] = React.useState(false);
-    const [applyEnabled, setApplyEnabled] = React.useState(false);
+    const [openDialog, setOpenDialog] = React.useState(false);
+    const [scroll, setScroll] = React.useState('paper');
 
-    const handleApplyToggle = () => {
-        setApplyEnabled(!applyEnabled);
+    const [openResumeSection, setOpenResumeSection] = React.useState(false);
+
+    // students details preview section
+    const handleClickOpen = (scrollType) => () => {
+        console.log(scrollType, "ello there mate")
+        setOpenDialog(true);
+        setScroll(scrollType);
+        handleCloseResumeSection();
+    };
+
+    const handleCloseDialog = () => {
+        setOpenDialog(false);
+    };
+
+    const handleSubmit = () => {
+        setOpenDialog(false);
+        alert("Applied Successfully")
+    }
+
+    // resume dialog box
+    const handleClickOpenResumeSection = () => {
+        setOpenResumeSection(true);
+    };
+    const handleCloseResumeSection = () => {
+        setOpenResumeSection(false);
     };
 
     return (
@@ -44,7 +70,7 @@ export default function RowCompany(props) {
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
-                        <Box sx={{ margin: 6 }}>
+                        <Box sx={{ marginTop: 2, marginLeft: 6, marginRight: 6, marginBottom: 6 }}>
                             <Box
                                 sx={{
                                     display: 'flex',
@@ -53,16 +79,17 @@ export default function RowCompany(props) {
                                     marginBottom: 2,
                                 }}
                             >
-                                <Typography variant="subtitle1">Form Status (ON/OFF)</Typography>
-                                <Switch checked={applyEnabled} onChange={handleApplyToggle} />
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    disabled={!applyEnabled}
-                                    onClick={() => alert('Apply button clicked!')}
+                                    disabled={company.active}
+                                    onClick={handleClickOpenResumeSection}
                                 >
                                     Apply Now
                                 </Button>
+                                {openResumeSection && <UploadResume onClose={handleCloseResumeSection} onClick={handleClickOpen('paper')} />}
+
+                                {openDialog && <ApplicationPreview onClose={handleCloseDialog} onClick={handleSubmit} openDialog={openDialog} scroll="paper" student={student} />}
                             </Box>
                             <Typography variant="h6" gutterBottom component="div">
                                 {company.details
@@ -75,11 +102,6 @@ export default function RowCompany(props) {
                                         />
                                     ))}
                             </Typography>
-                            <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
-                                <Button variant="contained" color="primary">
-                                    Show List of Applied Students
-                                </Button>
-                            </Box>
                         </Box>
                     </Collapse>
                 </TableCell>
