@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import style from "./login.module.css";
-import useAPIAuth from "../../apiConfig_TPO/useAPIAuth";
-import useAPIData from "../../apiConfig_TPO/useAPIData";
+import useAPIAuth from "../../apiConfig/useAPIAuth";
+import useAPIData from "../../apiConfig/useAPIData";
 
 function Login() {
   const { setUser } = useAPIAuth();
@@ -41,13 +41,13 @@ function Login() {
         <h1>Training and placement office</h1>
         <h2>MBM University</h2>
       </div>
-      <form onSubmit={handleLogin} className={style.login}>
+      {/* <form onSubmit={handleLogin} className={style.login}> */}
         <div className={style.userinput}>
           <input
             className={style.input}
             type="email"
             id="username"
-            value={email}
+            //value={email}
             onChange={handleUsernameChange}
             placeholder="Username"
           />
@@ -56,18 +56,18 @@ function Login() {
             className={style.input}
             type="password"
             id="password"
-            value={password}
+           // value={password}
             onChange={handlePasswordChange}
             placeholder="Password"
           />
         </div>
 
         <div className={style.submit}>
-          <button className={style.button} type="submit">
+          <button className={style.button} type="submit" onClick={handleLogin}>
             Login
           </button>
         </div>
-      </form>
+        {/* </form> */}
     </div>
   );
 }
