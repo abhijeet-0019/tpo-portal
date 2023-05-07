@@ -6,7 +6,7 @@ import Paper from '@mui/material/Paper';
 import RowFAQ from '../components/RowFAQ';
 import Header from '../components/Header';
 
-import { withAuth } from '../../withAuth';
+import { withAuth } from '../../apiConfig/withAuth';
 
 export default function FAQTable({faqs}) {
     return (

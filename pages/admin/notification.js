@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import Header from '../components/Header';
 
-import { withAuth } from '../../withAuth';
+import { withAuth } from '../../apiConfig/withAuth';
 
 export default function notification({ notifications }) {
 

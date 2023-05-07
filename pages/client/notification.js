@@ -7,7 +7,7 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-import { withAuth } from '../../withAuth';
+import { withAuth } from '../../apiConfig/withAuth';
 
 function NotificationTable({ notifications }) {
   return (
@@ -27,7 +27,7 @@ function NotificationTable({ notifications }) {
 export async function getServerSideProps() {
   const response = await fetch('http://localhost:5000/notification');
   const notifications = await response.json();
-  console.log(notifications);
+  // console.log(notifications);
   return { props: { notifications } };
 }
 

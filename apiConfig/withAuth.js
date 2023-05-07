@@ -11,7 +11,7 @@ export function withAuth(Component) {
 
     React.useEffect(() => {
       if (!loginStatus) {
-        router.push('/mainlogin');
+        router.push('/login');
       }
     }, [loginStatus, router]);
 

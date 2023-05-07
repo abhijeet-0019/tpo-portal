@@ -8,9 +8,8 @@ import Link from "next/link";
 function Navbar2({ children }) {
     const [activeLink, setActiveLink] = useState("");
  
-
   const list = [
-    { id: "1", text: "Login", url: "/mainlogin/login" },
+    { id: "1", text: "Login", url: "/login" },
     { id: "2", text: "Register", url: "/registration/register" },
     { id: "3", text: "Placement-Stats", url: "/Placement-Stats" },
     { id: "4", text: "TPO-MBMU-and-team", url: "/TPO-MBMU-and-team" },

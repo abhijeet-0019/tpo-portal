@@ -2,7 +2,7 @@ import * as React from 'react';
 import Header from '../components/Header';
 import RowCompany from '../components/RowCompany';
 
-import { withAuth } from '../../withAuth';
+import { withAuth } from '../../apiConfig/withAuth';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';

@@ -6,7 +6,7 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect (()=>{
-    router.push('/mainlogin/login');
+    router.push('/login');
   }, [])
   return (
     <>
