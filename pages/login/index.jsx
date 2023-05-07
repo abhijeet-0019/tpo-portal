@@ -2,12 +2,9 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import style from "./login.module.css";
 import useAPIAuth from "../../apiConfig/useAPIAuth";
-import useAPIData from "../../apiConfig/useAPIData";
 
 function Login() {
   const { setUser } = useAPIAuth();
-  const { getItems } = useAPIData();
-  const { getUserEmail } = useAPIAuth();
 
   const router = useRouter();
 
@@ -30,9 +27,10 @@ function Login() {
    console.log(user);
     if (success) {
       console.log("hello there mate")
-      router.push("../client/companylist");
+      router.push("../client/faq");
+      // router.push("../client/companylist");
     } else {
-      alert("Incorrect Login credentials");
+      alert("Incorrect Login Credentials");
     }
   };
 
