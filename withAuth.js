@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { useAPIAuth } from './useAPIAuth';
+import { useAPIAuth } from './apiConfig/useAPIAuth';
 
 // check for the verified user at every instance page rendering
 

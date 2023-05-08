@@ -29,9 +29,14 @@ function Login() {
     const success = await setUser(user);
    console.log(user);
     if (success) {
-      console.log("hello there mate")
-      router.push("../client/companylist");
-    } else {
+       if(user.email==="tpoadmin@mbm.ac.in")
+       router.push("../admin/studentList ");
+       else if(user.email==="tpouser@mbm.ac.in")
+       router.push("../client/companylist")
+
+    } 
+    
+    else {
       alert("Incorrect Login credentials");
     }
   };
