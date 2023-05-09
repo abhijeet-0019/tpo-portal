@@ -7,39 +7,37 @@ import RowFAQ from '../components/RowFAQ';
 import Header from '../components/Header';
 
 import useAPIData from '../../apiConfig/useAPIData'
-import { withAuth } from '../../apiConfig/withAuth';
+import Navbar2 from '../components/Navbar2';
 
-export default function FAQTable() {
+import withAuthClient from '../../apiConfig/withAuthClient';
+
+function FAQTable() {
     const { getItems } = useAPIData();
     const [faqs, setFaqs] = React.useState([]);
 
     React.useEffect(() => {
-        async function fetchData() {
-            const response = await getItems('TPO_FAQ', null, null, null, null, null, null, true);
-            setFaqs(response.data)
-            console.log(response.data);
+        if (typeof window !== 'undefined') {
+            async function fetchData() {
+                const response = await getItems('TPO_FAQ', null, null, null, null, null, null, true);
+                setFaqs(response.data);
+            }
+            fetchData();
         }
-        fetchData();
     }, []);
 
     return (
-        <TableContainer component={Paper}>
-            <Header tabname={"FAQ"} />
-            <Table aria-label="collapsible table">
-                <TableBody>
-                    {faqs.map((faq) => (
-                        <RowFAQ key={faq.id} faq={faq} />
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <Navbar2 loginStatus={true} userType={'applicant'}>
+            <TableContainer component={Paper}>
+                <Header tabname={"FAQ"} />
+                <Table aria-label="collapsible table">
+                    <TableBody>
+                        {faqs.map((faq) => (
+                            <RowFAQ key={faq.id} faq={faq} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Navbar2>
     );
 }
-
-// export async function getServerSideProps() {
-//     const { getItems } = useAPIData();
-//     const response = await getItems('TPO_FAQ', null, null, null, null, null, null, true);
-//     const faqs = response.data;
-//     console.log(faqs);
-//     return { props: { faqs } };
-// }
+export default withAuthClient(FAQTable);

@@ -1,21 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import style from "./Navbar2.module.css";
 import mbmLogo from "../../public/assets/mbmLogo.png";
 import Link from "next/link";
 
+function Navbar2({ children, loginStatus, userType}) {
+  const [activeLink, setActiveLink] = useState("");
 
-function Navbar2({ children }) {
-    const [activeLink, setActiveLink] = useState("");
- 
-  const list = [
+  useEffect(() => {
+    console.log("loginStatus:", loginStatus);
+    console.log("userType:", userType);
+  }, []);
+
+  const nav_list_default = [
     { id: "1", text: "Login", url: "/login" },
-    { id: "2", text: "Register", url: "/registration/register" },
-    { id: "3", text: "Placement-Stats", url: "/Placement-Stats" },
-    { id: "4", text: "TPO-MBMU-and-team", url: "/TPO-MBMU-and-team" },
-    { id: "5", text: "Support", url: "/Support" },
-    { id: "6", text: "FAQ", url: "/FAQ" },
+    { id: "2", text: "Register", url: "/" },
+    { id: "3", text: "Placement Stats", url: "/default/placementstats" },
+    { id: "4", text: "Support", url: "/default/support" },
+    { id: "5", text: "FAQ", url: "/default/faq" },
+    { id: "6", text: "TPO Team", url: "/default/tpoteam" },
   ];
+
+  const nav_list_client = [
+    { id: "1", text: "Company List", url: "/client/companylist" },
+    { id: "2", text: "Notification", url: "/client/notification" },
+    { id: "3", text: "Profile", url: "/client/profile" },
+    // { id: "3", text: "Update Profile", url: "/client/profile" },
+    { id: "5", text: "Support", url: "/client/support" },
+    { id: "6", text: "FAQ", url: "/client/faq" },
+    { id: "7", text: "Logout", url: "/login" },
+  ];
+
+  const nav_list_admin = [
+    { id: "1", text: "Dashboard", url: "/admin/dashboard" },
+    { id: "2", text: "Company List", url: "/admin/companylist" },
+    { id: "3", text: "Placement Stats", url: "/admin/placementstats" },
+    { id: "7", text: "Students List", url: "/admin/studentlist" },
+    { id: "4", text: "Notifications", url: "/admin/notification" },
+    { id: "5", text: "Settings", url: "/admin/settings" },
+    { id: "6", text: "Logout", url: "/login" },
+  ];
+
+  const nav_list = (loginStatus) ? ((userType === 'admin') ? (nav_list_admin) : (nav_list_client)) : nav_list_default;
 
   const routes = [""];
   const handleLinkClick = (url) => {
@@ -30,18 +56,17 @@ function Navbar2({ children }) {
               <div className={style.list_tab}>
                 <span className={style.list_tab}>
                   <div className={style.logo}>
-                    <Image src={mbmLogo} className={style.image} />
+                  <Image src={mbmLogo} alt="MBM logo" className={style.image} />
                   </div>
                 </span>
               </div>
             </li>
-            {list.map((item) => (
+            {nav_list.map((item) => (
               <li key={item.id} className={style.items}>
                 <Link href={item.url}>
                   <div
-                    className={`${style.list_tab} ${
-                      activeLink === item.url ? style.active : ""
-                    }`}
+                    className={`${style.list_tab} ${activeLink === item.url ? style.active : ""
+                      }`}
                     onClick={() => handleLinkClick(item.url)}
                   >
                     <span className={style.list}>{item.text}</span>

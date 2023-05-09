@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import Header from '../components/Header';
 
-import { withAuth } from '../../apiConfig/withAuth';
+import Navbar2 from '../components/Navbar2';
 
 export default function notification({ notifications }) {
 
@@ -36,19 +36,21 @@ export default function notification({ notifications }) {
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-           
-        <AddNotification />
-            <TableContainer component={Paper}>
-                <Table aria-label="collapsible table">
-                    <TableBody>
-                        {notificationArray.map((notification) => (
-                            <RowNotification key={notification.id} notification={notification} admin={true} onDeleteNotification={handleDeleteNotification} />
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </div>
+        <Navbar2 loginStatus={true} userType={'admin'}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+
+                <AddNotification />
+                <TableContainer component={Paper}>
+                    <Table aria-label="collapsible table">
+                        <TableBody>
+                            {notificationArray.map((notification) => (
+                                <RowNotification key={notification.id} notification={notification} admin={true} onDeleteNotification={handleDeleteNotification} />
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </div>
+        </Navbar2>
     );
 }
 

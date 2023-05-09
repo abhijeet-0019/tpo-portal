@@ -1,17 +1,17 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { useAPIAuth } from './useAPIAuth';
+import useAPIAuth from './useAPIAuth';
 
-// check for the verified user at every instance page rendering
-
-export function withAuth(Component) {
+export default function withAuthClient(Component) {
   return function AuthenticatedComponent(props) {
     const router = useRouter();
     const { loginStatus } = useAPIAuth();
 
     React.useEffect(() => {
-      if (!loginStatus) {
-        router.push('/login');
+      const userType = sessionStorage.getItem('userType');
+      if (!loginStatus || userType === 'applicant') {
+        alert('invalid access')
+        router.push('/');
       }
     }, [loginStatus, router]);
 

@@ -94,8 +94,9 @@ export default function RowCompany(props) {
                             <Typography variant="h6" gutterBottom component="div">
                                 {company.details
                                     .split('\n')
-                                    .map((c) => (
+                                    .map((c, index) => (
                                         <li
+                                            key={index}
                                             dangerouslySetInnerHTML={{
                                                 __html: c.replace(/\n/g, '<br>'),
                                             }}

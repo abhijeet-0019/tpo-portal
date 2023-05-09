@@ -2,30 +2,34 @@ import * as React from 'react';
 import Header from '../components/Header';
 import RowCompany from '../components/RowCompany';
 
-import { withAuth } from '../../apiConfig/withAuth';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
+import Navbar2 from '../components/Navbar2';
 
-export default function companyTable(props) {
+import withAuthClient from '../../apiConfig/withAuthClient';
+
+function companyTable(props) {
   const { companies, students } = props;
   const student = students[0]
 
   return (
-    <TableContainer component={Paper}>
-      <Header tabname={'COMPANIES'} />
-      <Table aria-label="collapsible table">
-        <TableBody>
-          {companies.map((company) => (
-            <RowCompany key={company.id} company={company} student={student}/>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Navbar2 loginStatus={true} userType={'applicant'}>
+      <TableContainer component={Paper}>
+        <Header tabname={'COMPANIES'} />
+        <Table aria-label="collapsible table">
+          <TableBody>
+            {companies.map((company) => (
+              <RowCompany key={company.id} company={company} student={student} />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Navbar2>
   );
 }
+export default withAuthClient(companyTable);
 
 
 export async function getServerSideProps() {

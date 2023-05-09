@@ -50,8 +50,10 @@ export default function RowNotification(props) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                {notification.content.split('\n').map(c => (
-                  <li dangerouslySetInnerHTML={{ __html: c.replace(/\n/g, '<br>') }} />
+                {notification.content.split('\n').map((c, index) => (
+                  <li
+                  key={index}
+                   dangerouslySetInnerHTML={{ __html: c.replace(/\n/g, '<br>') }} />
                 ))}
               </Typography>
             </Box>
