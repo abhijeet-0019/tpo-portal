@@ -7,20 +7,22 @@ import TableBody from '@mui/material/TableBody';
 import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 
-import { withAuth } from '../../apiConfig/withAuth';
+import Navbar2 from '../components/Navbar2';
 
 function NotificationTable({ notifications }) {
   return (
-    <TableContainer component={Paper}>
-      <Header tabname={'NOTIFICATIONS'} />
-      <Table aria-label="collapsible table">
-        <TableBody>
-          {notifications.map((notification) => (
-            <RowNotification key={notification.id} notification={notification} admin={false} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Navbar2 loginStatus={true} userType={'applicant'}>
+      <TableContainer component={Paper}>
+        <Header tabname={'NOTIFICATIONS'} />
+        <Table aria-label="collapsible table">
+          <TableBody>
+            {notifications.map((notification) => (
+              <RowNotification key={notification.id} notification={notification} admin={false} />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Navbar2>
   );
 }
 
