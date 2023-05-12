@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import Navbar2 from '../components/Navbar2';
 
-import withAuthAdmin from '../../apiConfig/withAuthAdmin';
+import withAuthClient from '../../apiConfig/withAuthClient';
 
 import useAPIData from '../../apiConfig/useAPIData';
 
@@ -16,7 +16,7 @@ import TableRow from '@mui/material/TableRow';
 // Add the missing import
 import TableCell from '@mui/material/TableCell';
 
-export default function CompanyTable() {
+function CompanyTable() {
   const [companies, setCompanies] = useState([]);
 
   const { getItems } = useAPIData();
@@ -58,3 +58,4 @@ export default function CompanyTable() {
     </Navbar2>
   );
 }
+export default withAuthClient(CompanyTable);

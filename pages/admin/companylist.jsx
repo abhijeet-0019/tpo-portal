@@ -16,7 +16,7 @@ import TableRow from '@mui/material/TableRow';
 // Add the missing import
 import TableCell from '@mui/material/TableCell';
 
-export default function CompanyTable() {
+function CompanyTable() {
   const [companies, setCompanies] = useState([]);
 
   const { getItems } = useAPIData();
@@ -58,3 +58,4 @@ export default function CompanyTable() {
     </Navbar2>
   );
 }
+export default withAuthAdmin(CompanyTable)

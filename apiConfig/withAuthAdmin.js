@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import useAPIAuth from './useAPIAuth';
 
-export default function withAuthClient(Component) {
+export default function withAuthAdmin(Component) {
   return function AuthenticatedComponent(props) {
     const router = useRouter();
     const { loginStatus } = useAPIAuth();

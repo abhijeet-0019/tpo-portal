@@ -10,10 +10,10 @@ import Header from '../components/Header';
 
 import Navbar2 from '../components/Navbar2';
 
-import withAuthClient from '../../apiConfig/withAuthClient';
+import withAuthAdmin from '../../apiConfig/withAuthAdmin';
 import useAPIData from '../../apiConfig/useAPIData';
 
-export default function notification() {
+function notification() {
     const { getItems } = useAPIData();
     const [notificationArray, setNotifications] = React.useState([]);
 
@@ -73,3 +73,4 @@ export default function notification() {
         </Navbar2>
     );
 }
+export default withAuthAdmin(notification)

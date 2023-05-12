@@ -19,7 +19,7 @@ function Navbar2({ children, loginStatus, userType }) {
 
   const nav_list_default = [
     { id: "1", text: "Login", url: "/login" },
-    { id: "2", text: "Register", url: "/" },
+    // { id: "2", text: "Register", url: "/" },
     { id: "3", text: "Placement Stats", url: "/default/placementstats" },
     { id: "4", text: "Support", url: "/default/support" },
     { id: "5", text: "FAQ", url: "/default/faq" },

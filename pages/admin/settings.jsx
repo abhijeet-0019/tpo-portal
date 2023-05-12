@@ -1,6 +1,7 @@
 import React from 'react'
 import ComingSoonPage from '../components/ComingSoon'
 import Navbar2 from '../components/Navbar2'
+import withAuthAdmin from '../../apiConfig/withAuthAdmin'
 
 const settings = () => {
   return (
@@ -10,4 +11,4 @@ const settings = () => {
   )
 }
 
-export default settings
+export default withAuthAdmin(settings)
