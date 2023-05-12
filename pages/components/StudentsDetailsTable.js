@@ -7,33 +7,51 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const StudentDetailsTable = ({ student }) => {
-  const { STUDENT_ID, EMAIL_ADDRESS, NAME, BRANCH_ID, DOB, MOBILE_NO, ROLL_NO, 
-          '10_%': tenPercentage, '10_BOARD': tenBoard, '10_PASSING_YR': tenPassingYear, 
-          '12_%': twelvePercentage, '12_BOARD': twelveBoard, '12_SUBJECT': twelveSubject, '12_YEAR_OF_PASSING': twelveYearOfPassing, 
-          GRA_AD_YR, GRA_PASS_YR, 'BE_%': bePercentage, DEAD_KT, ACTIVE_KT, RESUME } = student;
+const StudentDetailsTable = () => {
+
+  const data = {
+    id: 1,
+    user_created: "edc97c54-effb-45f7-90f3-9ecf4ea05146",
+    date_created: "2023-05-05T12:31:08.000Z",
+    user_updated: "edc97c54-effb-45f7-90f3-9ecf4ea05146",
+    date_updated: "2023-05-12T16:09:04.000Z",
+    user_id: "459d9361-b7a1-4dcb-ba69-2c9f237fcc15",
+    roll_no: "21UCSE4007",
+    branch_id: "CSE",
+    percentage_10: 85,
+    board_10: "CBSE",
+    passing_year_10: 2019,
+    percentage_12: 91,
+    board_12: "CBSE",
+    passing_year_12: 2019,
+    current_year: 3,
+    grad_year: 2024,
+    be_percentage: 82,
+    dead_kt: 0,
+    active_kt: 0,
+    can_apply: 1,
+    diploma_college: null,
+    percentage_diploma: null,
+    diploma_year: null,
+    diploma_specialization: null
+  }
 
   const studentDetails = [
-    { label: 'Student ID', value: STUDENT_ID },
-    { label: 'Email Address', value: EMAIL_ADDRESS },
-    { label: 'Name', value: NAME },
-    { label: 'Branch ID', value: BRANCH_ID },
-    { label: 'Date of Birth', value: DOB },
-    { label: 'Mobile Number', value: MOBILE_NO },
-    { label: 'Roll Number', value: ROLL_NO },
-    { label: '10th Percentage', value: tenPercentage },
-    { label: '10th Board', value: tenBoard },
-    { label: '10th Passing Year', value: tenPassingYear },
-    { label: '12th Percentage', value: twelvePercentage },
-    { label: '12th Board', value: twelveBoard },
-    { label: '12th Subject', value: twelveSubject },
-    { label: '12th Year of Passing', value: twelveYearOfPassing },
-    { label: 'Graduation Admission Year', value: GRA_AD_YR },
-    { label: 'Graduation Passing Year', value: GRA_PASS_YR },
-    { label: 'BE Percentage', value: bePercentage },
-    { label: 'Dead KT', value: DEAD_KT },
-    { label: 'Active KT', value: ACTIVE_KT },
-    { label: 'Resume', value: RESUME },
+    { label: 'ID', value: data.id },
+    { label: 'User ID', value: data.user_id },
+    { label: 'Roll Number', value: data.roll_no },
+    { label: 'Branch ID', value: data.branch_id },
+    { label: '10th Percentage', value: data.percentage_10 },
+    { label: '10th Board', value: data.board_10 },
+    { label: '10th Passing Year', value: data.passing_year_10 },
+    { label: '12th Percentage', value: data.percentage_12 },
+    { label: '12th Board', value: data.board_12 },
+    { label: '12th Passing Year', value: data.passing_year_12 },
+    { label: 'Current Year', value: data.current_year },
+    { label: 'Graduation Year', value: data.grad_year },
+    { label: 'BE Percentage', value: data.be_percentage },
+    { label: 'Dead KT', value: data.dead_kt },
+    { label: 'Active KT', value: data.active_kt },
   ];
 
   return (

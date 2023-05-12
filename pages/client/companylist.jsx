@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import RowCompany from '../components/RowCompany';
 
@@ -8,41 +8,53 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import Navbar2 from '../components/Navbar2';
 
-import withAuthClient from '../../apiConfig/withAuthClient';
+import withAuthAdmin from '../../apiConfig/withAuthAdmin';
 
-function companyTable(props) {
-  const { companies, students } = props;
-  const student = students[0]
+import useAPIData from '../../apiConfig/useAPIData';
+
+import TableRow from '@mui/material/TableRow';
+// Add the missing import
+import TableCell from '@mui/material/TableCell';
+
+export default function CompanyTable() {
+  const [companies, setCompanies] = useState([]);
+
+  const { getItems } = useAPIData();
+
+  useEffect(() => {
+    // Fetch companies from API
+    fetchCompanies();
+  }, []);
+
+  const fetchCompanies = async () => {
+    try {
+      const response = await getItems('TPO_Drive', null, null, null, null, null, null, true);
+      const data = response.data;
+      console.log("data -> ", data);
+      setCompanies(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <Navbar2 loginStatus={true} userType={'applicant'}>
+    <Navbar2 loginStatus={true} userType={"admin"}>
       <TableContainer component={Paper}>
-        <Header tabname={'COMPANIES'} />
+        <Header tabname={"COMPANIES"} />
         <Table aria-label="collapsible table">
           <TableBody>
-            {companies.map((company) => (
-              <RowCompany key={company.id} company={company} student={student} />
-            ))}
+            {companies.length > 0 ? (
+              companies.map((company) => (
+                <RowCompany key={company.id} company={company} admin={false} />
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={4}>Loading...</TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>
     </Navbar2>
   );
-}
-export default withAuthClient(companyTable);
-
-
-export async function getServerSideProps() {
-  const response1 = await fetch('http://localhost:5000/companies');
-  const companies = await response1.json();
-
-  const response2 = await fetch('http://localhost:5000/students');
-  const students = await response2.json();
-
-  // console.log("---->", students, students[0])
-  return {
-    props: {
-      companies, students
-    },
-  };
 }

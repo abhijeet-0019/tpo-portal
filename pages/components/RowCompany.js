@@ -13,7 +13,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Button from '@mui/material/Button';
 
 export default function RowCompany(props) {
-    const { company, student } = props;
+    const { company, admin } = props;
     const [open, setOpen] = React.useState(false);
     const [openDialog, setOpenDialog] = React.useState(false);
     const [scroll, setScroll] = React.useState('paper');
@@ -22,7 +22,6 @@ export default function RowCompany(props) {
 
     // students details preview section
     const handleClickOpen = (scrollType) => () => {
-        console.log(scrollType, "ello there mate")
         setOpenDialog(true);
         setScroll(scrollType);
         handleCloseResumeSection();
@@ -34,6 +33,7 @@ export default function RowCompany(props) {
 
     const handleSubmit = () => {
         setOpenDialog(false);
+        sessionStorage.setItem('Applied', true);
         alert("Applied Successfully")
     }
 
@@ -58,13 +58,13 @@ export default function RowCompany(props) {
                     </IconButton>
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    {company.name}
+                    {company.Name}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    {company.jobProfile}
+                    {company.RolesOffered}
                 </TableCell>
                 <TableCell component="th" scope="row">
-                    {company.eligibleBranches}
+                    {company.DriveStatus}
                 </TableCell>
             </TableRow>
             <TableRow>
@@ -79,29 +79,31 @@ export default function RowCompany(props) {
                                     marginBottom: 2,
                                 }}
                             >
-                                <Button
+
+                                {!admin && <Button
                                     variant="contained"
                                     color="primary"
-                                    disabled={company.active}
+                                    disabled={company.DriveStatus != 'Upcoming' || sessionStorage.getItem('Applied')}
                                     onClick={handleClickOpenResumeSection}
                                 >
-                                    Apply Now
+                                    Apply
                                 </Button>
+                                }
                                 {openResumeSection && <UploadResume onClose={handleCloseResumeSection} onClick={handleClickOpen('paper')} />}
 
-                                {openDialog && <ApplicationPreview onClose={handleCloseDialog} onClick={handleSubmit} openDialog={openDialog} scroll="paper" student={student} />}
+                                {openDialog && <ApplicationPreview onClose={handleCloseDialog} onClick={handleSubmit} openDialog={openDialog} scroll="paper" />}
                             </Box>
                             <Typography variant="h6" gutterBottom component="div">
-                                {company.details
-                                    .split('\n')
-                                    .map((c, index) => (
+                                {company && company.Description
+                                    ? company.Description.split('\n').map((c, index) => (
                                         <li
                                             key={index}
                                             dangerouslySetInnerHTML={{
                                                 __html: c.replace(/\n/g, '<br>'),
                                             }}
                                         />
-                                    ))}
+                                    ))
+                                    : ''}
                             </Typography>
                         </Box>
                     </Collapse>

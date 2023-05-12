@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import RowCompany from '../components/RowCompany';
 
@@ -10,31 +10,51 @@ import Navbar2 from '../components/Navbar2';
 
 import withAuthAdmin from '../../apiConfig/withAuthAdmin';
 
-export default function companyTable(props) {
-  const { companies } = props;
+import useAPIData from '../../apiConfig/useAPIData';
+
+import TableRow from '@mui/material/TableRow';
+// Add the missing import
+import TableCell from '@mui/material/TableCell';
+
+export default function CompanyTable() {
+  const [companies, setCompanies] = useState([]);
+
+  const { getItems } = useAPIData();
+
+  useEffect(() => {
+    // Fetch companies from API
+    fetchCompanies();
+  }, []);
+
+  const fetchCompanies = async () => {
+    try {
+      const response = await getItems('TPO_Drive', null, null, null, null, null, null, true);
+      const data = response.data;
+      console.log("data -> ", data);
+      setCompanies(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
-    <Navbar2 loginStatus={true} userType={'admin'}>
+    <Navbar2 loginStatus={true} userType={"admin"}>
       <TableContainer component={Paper}>
-        <Header tabname={'COMPANIES'} />
+        <Header tabname={"COMPANIES"} />
         <Table aria-label="collapsible table">
           <TableBody>
-            {companies.map((company) => (
-              <RowCompany key={company.id} company={company} admin={true} />
-            ))}
+            {companies.length > 0 ? (
+              companies.map((company) => (
+                <RowCompany key={company.id} company={company} admin={true} />
+              ))
+            ) : (
+              <TableRow>
+                <TableCell colSpan={4}>Loading...</TableCell>
+              </TableRow>
+            )}
           </TableBody>
         </Table>
       </TableContainer>
     </Navbar2>
   );
-}
-
-export async function getServerSideProps() {
-  const response = await fetch('http://localhost:5000/companies');
-  const companies = await response.json();
-  return {
-    props: {
-      companies,
-    },
-  };
 }
