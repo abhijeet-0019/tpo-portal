@@ -28,14 +28,7 @@ function StudentList() {
   const [companyFilter, setCompanyFilter] = useState('')
 
   useEffect(() => {
-    //   axios.get('http://localhost:5000/placed_students')
-    //     .then(response => {
-    //       setStudents(response.data)
-    //       console.log(students)
-    //     })
-    //     .catch(error => {
-    //       console.error(error)
-    //     })
+z
     async function fetchData() {
       const response = await getItems('TPO_students_personal_details',
         undefined,
