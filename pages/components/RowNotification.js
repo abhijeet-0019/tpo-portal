@@ -10,11 +10,11 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function RowNotification(props) {
-  const { notification, admin,  onDeleteNotification } = props;
+  const { notification, admin } = props;
   const [open, setOpen] = React.useState(false);
 
   const handleDelete = () => {
-    onDeleteNotification(notification.id);
+    alert("Deleting made easy! We're fine-tuning our delete feature to ensure a smooth and hassle-free experience. It will be at your service in no time!");
   };
 
   return (
@@ -30,10 +30,10 @@ export default function RowNotification(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {notification.company}
+          {notification.company_name}
         </TableCell>
-        <TableCell align="right">{notification.batch}</TableCell>
-        <TableCell align="right">{notification.subHeading}</TableCell>
+        <TableCell align="right">{notification.date}</TableCell>
+        <TableCell align="right">{'Update'}</TableCell>
         {admin ? (
           <TableCell>
             <IconButton

@@ -55,7 +55,7 @@ const fetchLoginToken= (url,options,invalidate=false)=> {
 
 
 export default function useAPIAuth(){
-    const [loginStatus, setLoginStatus] = useState(()=>!!getLoginToken().accessToken);
+    const [loginStatus, setLoginStatus] = useState(()=>(!!(getLoginToken()?.accessToken)));
     //const [userEmail, setUserEmail] = useState('');
     const [enableTimer, setEnableTimer] = useState()
     const interval = useRef(null);
@@ -63,6 +63,7 @@ export default function useAPIAuth(){
     useEffect(() => {
         // Perform localStorage action
         setEnableTimer(localStorage.getItem('refreshTimer'))
+        setLoginStatus(!!(getLoginToken().accessToken));
       }, [])
       
     const setUser= async (user)=>{
@@ -169,9 +170,11 @@ export default function useAPIAuth(){
     }
 
     function getAuthHeader(customToken=null){
+        //console.log(loginStatus);
+        //setLoginStatus();
         if(customToken)
             return {'access_token': customToken};
-        else if(loginStatus)
+        else if(!!getLoginToken().accessToken)
             return {'access_token': getAccessToken()};//'Bearer '+        
         else return undefined;
     }
@@ -198,7 +201,8 @@ export default function useAPIAuth(){
         logoutUser: logout,
         getAuthHeader: getAuthHeader,
         getAuthURLParam: getAuthURLParam,
-        getUserEmail: getUserEmail
+        getUserEmail: getUserEmail,
+        getAccessToken:getAccessToken
     };
 
 }

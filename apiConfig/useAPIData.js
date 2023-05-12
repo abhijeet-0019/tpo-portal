@@ -2,7 +2,7 @@ import getDirectus, { getAssetURL, getFilesURL } from './api.config.js';
 import useAPIAuth from './useAPIAuth';
 
 export default function useAPIData() {
-    const { getAuthHeader, getAuthURLParam } = useAPIAuth();
+    const { loginStatus,getAuthHeader, getAuthURLParam,getAccessToken } = useAPIAuth();
 
     //Always an authorized request to get current logged in user details
     async function getUserDetails() {
@@ -74,8 +74,9 @@ export default function useAPIData() {
             ...(fieldParam !== undefined ? { fields: fieldParam } : {}),
             ...(searchParam !== undefined ? { search: searchParam } : {})
         };
+        // console.log(getAccessToken())
         const authHeader = getAuthHeader();
-        //console.log(queryObj,authHeader);
+        // console.log("Auth Header:",authHeader);
         if (!!authorized && !!authHeader) {
             const directus = getDirectus(authHeader);
             const collection = directus.items(collectionName);

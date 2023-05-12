@@ -3,9 +3,14 @@ import Image from "next/image";
 import style from "./Navbar2.module.css";
 import mbmLogo from "../../public/assets/mbmLogo.png";
 import Link from "next/link";
+import useAPIAuth from "../../apiConfig/useAPIAuth";
+import { useRouter } from "next/router";
 
-function Navbar2({ children, loginStatus, userType}) {
+function Navbar2({ children, loginStatus, userType }) {
+  const { logoutUser } = useAPIAuth();
   const [activeLink, setActiveLink] = useState("");
+
+  const router = useRouter();
 
   useEffect(() => {
     console.log("loginStatus:", loginStatus);
@@ -27,8 +32,8 @@ function Navbar2({ children, loginStatus, userType}) {
     { id: "3", text: "Profile", url: "/client/profile" },
     // { id: "3", text: "Update Profile", url: "/client/profile" },
     { id: "5", text: "Support", url: "/client/support" },
-    { id: "6", text: "FAQ", url: "/client/faq" },
-    { id: "7", text: "Logout", url: "/login" },
+    { id: "7", text: "FAQ", url: "/client/faq" },
+    { id: "6", text: "Logout", url: "/login" },
   ];
 
   const nav_list_admin = [
@@ -47,6 +52,12 @@ function Navbar2({ children, loginStatus, userType}) {
   const handleLinkClick = (url) => {
     setActiveLink(url);
   };
+
+  const handleLogout = () => {
+    logoutUser();
+    router.push("/");
+  };
+
   return (
     <div className={style.parent}>
       <div className={style.sidebar}>
@@ -56,22 +67,36 @@ function Navbar2({ children, loginStatus, userType}) {
               <div className={style.list_tab}>
                 <span className={style.list_tab}>
                   <div className={style.logo}>
-                  <Image src={mbmLogo} alt="MBM logo" className={style.image} />
+                    <Image
+                      src={mbmLogo}
+                      alt="MBM logo"
+                      className={style.image}
+                    />
                   </div>
                 </span>
               </div>
             </li>
             {nav_list.map((item) => (
               <li key={item.id} className={style.items}>
-                <Link href={item.url}>
-                  <div
-                    className={`${style.list_tab} ${activeLink === item.url ? style.active : ""
-                      }`}
-                    onClick={() => handleLinkClick(item.url)}
-                  >
-                    <span className={style.list}>{item.text}</span>
-                  </div>
-                </Link>
+                {item.text === "Logout" ? (
+                  <Link href={item.url}>
+                    <div
+                      className={`${style.list_tab} ${activeLink === item.url ? style.active : ""}`}
+                      onClick={handleLogout}
+                    >
+                      <span className={style.list}>{item.text}</span>
+                    </div>
+                  </Link>
+                ) : (
+                  <Link href={item.url}>
+                    <div
+                      className={`${style.list_tab} ${activeLink === item.url ? style.active : ""}`}
+                      onClick={() => handleLinkClick(item.url)}
+                    >
+                      <span className={style.list}>{item.text}</span>
+                    </div>
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
