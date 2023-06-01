@@ -47,4 +47,3 @@ export default function ApplicationPreview({ onClose, onClick, openDialog, scrol
         </div>
     );
 }
-

@@ -8,13 +8,12 @@ import TableContainer from '@mui/material/TableContainer';
 import Paper from '@mui/material/Paper';
 import Navbar2 from '../components/Navbar2';
 
-import withAuthClient from '../../apiConfig/withAuthClient';
-
 import useAPIData from '../../apiConfig/useAPIData';
 
 import TableRow from '@mui/material/TableRow';
 // Add the missing import
 import TableCell from '@mui/material/TableCell';
+import withAuthClient from '../../apiConfig/withAuthClient';
 
 function CompanyTable() {
   const [companies, setCompanies] = useState([]);
@@ -38,7 +37,7 @@ function CompanyTable() {
   };
 
   return (
-    <Navbar2 loginStatus={true} userType={"admin"}>
+    <Navbar2 loginStatus={true} userType={"client"}>
       <TableContainer component={Paper}>
         <Header tabname={"COMPANIES"} />
         <Table aria-label="collapsible table">
@@ -58,4 +57,4 @@ function CompanyTable() {
     </Navbar2>
   );
 }
-export default withAuthClient(CompanyTable);
+export default withAuthClient(CompanyTable)

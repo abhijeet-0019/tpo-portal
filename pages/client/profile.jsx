@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Navbar2 from '../components/Navbar2';
 import ProfilePreview from '../components/ProfilePreview';
 import useAPIData from '../../apiConfig/useAPIData';
-import withAuthClient from '../../apiConfig/withAuthAdmin';
+import withAuthClient from '../../apiConfig/withAuthClient';
 
-function Profile () {
+const Profile = () => {
   const [userAcademic, setUserAcademic] = useState(null);
   const [userPersonal, setUserPersonal] = useState(null);
   const { getItems } = useAPIData();

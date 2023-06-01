@@ -1,9 +1,9 @@
 import React from 'react'
 import ComingSoonPage from '../components/ComingSoon'
 import Navbar2 from '../components/Navbar2'
-import withAuthClient from '../../apiConfig/withAuthAdmin'
+import withAuthClient from '../../apiConfig/withAuthClient'
 
-function Support(){
+const support = () => {
     return (
         <Navbar2 loginStatus={true} userType={'applicant'}>
             <ComingSoonPage />
@@ -11,4 +11,4 @@ function Support(){
     )
 }
 
-export default withAuthClient(Support);
+export default withAuthClient(support)

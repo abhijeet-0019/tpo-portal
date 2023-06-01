@@ -1,0 +1,46 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 300px;
+  }
+  
+  .image {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    height: 300px;
+  }
+  
+  .details {
+    margin-bottom: 20px;
+  }
+  
+  .volunteers {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  }
+  
+  .volunteer {
+    margin: 10px;
+    flex: 0 0 calc(30% - 10px);
+  }
+  
+  .volunteer h3 {
+    margin: 20px;
+    color: rgb(16, 16, 91);
+  }
+  
+  .volunteer p {
+    margin: 0;
+    font-style: italic;
+    color: #888;
+  }
+  

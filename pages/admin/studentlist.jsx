@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -12,6 +11,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import useAPIData from '../../apiConfig/useAPIData'
 import Navbar2 from '../components/Navbar2'
+import withAuthAdmin from '../../apiConfig/withAuthAdmin'
 
 const useStyles = makeStyles({
   table: {
@@ -28,7 +28,6 @@ function StudentList() {
   const [companyFilter, setCompanyFilter] = useState('')
 
   useEffect(() => {
-z
     async function fetchData() {
       const response = await getItems('TPO_students_personal_details',
         undefined,
@@ -109,4 +108,4 @@ z
   );
 }
 
-export default StudentList;
+export default withAuthAdmin(StudentList);

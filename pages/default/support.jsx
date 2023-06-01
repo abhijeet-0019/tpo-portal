@@ -4,7 +4,7 @@ import Navbar2 from '../components/Navbar2'
 
 const support = () => {
   return (
-    <Navbar2 loginStatus={true} userType={'applicant'}>
+    <Navbar2 loginStatus={false} userType={'applicant'}>
       <ComingSoonPage />
     </Navbar2>
   )

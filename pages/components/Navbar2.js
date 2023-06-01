@@ -19,7 +19,7 @@ function Navbar2({ children, loginStatus, userType }) {
 
   const nav_list_default = [
     { id: "1", text: "Login", url: "/login" },
-    // { id: "2", text: "Register", url: "/" },
+   // { id: "2", text: "Register", url: "/client/registration" },
     { id: "3", text: "Placement Stats", url: "/default/placementstats" },
     { id: "4", text: "Support", url: "/default/support" },
     { id: "5", text: "FAQ", url: "/default/faq" },
@@ -30,17 +30,19 @@ function Navbar2({ children, loginStatus, userType }) {
     { id: "1", text: "Company List", url: "/client/companylist" },
     { id: "2", text: "Notification", url: "/client/notification" },
     { id: "3", text: "Profile", url: "/client/profile" },
-    // { id: "3", text: "Update Profile", url: "/client/profile" },
+
+    //{ id: "4", text: "Update Profile", url: "/client/registration" },
     { id: "5", text: "Support", url: "/client/support" },
     { id: "7", text: "FAQ", url: "/client/faq" },
     { id: "6", text: "Logout", url: "/login" },
+
   ];
 
   const nav_list_admin = [
     { id: "1", text: "Dashboard", url: "/admin/dashboard" },
     { id: "2", text: "Company List", url: "/admin/companylist" },
     { id: "3", text: "Placement Stats", url: "/admin/placementstats" },
-    { id: "7", text: "Students List", url: "/admin/studentlist" },
+    { id: "8", text: "Create Profile", url: "/admin/registration" },
     { id: "4", text: "Notifications", url: "/admin/notification" },
     { id: "5", text: "Settings", url: "/admin/settings" },
     { id: "6", text: "Logout", url: "/login" },
